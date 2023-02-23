@@ -26,7 +26,6 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<Product> findByCategoryId(String cid) {
-		// TODO Auto-generated method stub
 		return pdao.findByCategoryId(cid);
 	}
 

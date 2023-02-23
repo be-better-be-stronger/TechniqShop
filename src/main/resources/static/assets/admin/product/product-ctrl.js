@@ -44,6 +44,7 @@ app.controller("product-ctrl", function($scope, $http) {
 		}).catch(error => {
 			alert("Lỗi thêm mới sản phẩm");
 			console.log("Error", error);
+			
 		})
 	}
 	//Update sp

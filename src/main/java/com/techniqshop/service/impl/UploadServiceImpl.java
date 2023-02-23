@@ -1,11 +1,6 @@
 package com.techniqshop.service.impl;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import javax.servlet.ServletContext;
 
@@ -22,16 +17,17 @@ public class UploadServiceImpl implements UploadService{
 	@Override
 	public File save(MultipartFile file, String folder) {
 		
-		File dir = new File(app.getRealPath("/assets/" + folder));
+		File dir = new File("src/main/resources/static/assets/"+folder);
+		System.out.println(dir.getAbsolutePath() + "8");
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
 		String s = System.currentTimeMillis() + file.getOriginalFilename();
 		String name = Integer.toHexString(s.hashCode()) + s.substring(s.lastIndexOf("."));
 		
-		
+
 		try {
-			File savedFile = new File(dir, name);
+			File savedFile = new File(dir.getAbsolutePath(), name);
 			file.transferTo(savedFile);
 			System.out.println(savedFile.getAbsolutePath());
 			return savedFile;

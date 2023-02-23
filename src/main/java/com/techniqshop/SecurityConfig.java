@@ -55,11 +55,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/rest/authorities").hasRole("DIRE")
 			.anyRequest().permitAll();
 		
-		http.formLogin()
-			.loginPage("/security/login/form")
-			.loginProcessingUrl("/security/login")
-			.defaultSuccessUrl("/security/login/success", false)
-			.failureUrl("/security/login/error");
+//		http.formLogin()
+//			.loginPage("/security/login/form")
+//			.loginProcessingUrl("/security/login")
+//			.defaultSuccessUrl("/security/login/success", false)
+//			.failureUrl("/security/login/error");
 		
 		http.rememberMe().tokenValiditySeconds(86400);
 		
